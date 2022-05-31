@@ -51,6 +51,7 @@ namespace LengthSide
     
     class Figure
     {   // запрашиваем количество вершин фигуры ? запускаем нужный конструктор - формируем фигуру
+
         public Figure(Point A, Point B,Point C)
         {
             // triangle
@@ -73,7 +74,7 @@ namespace LengthSide
             // определяем длины сторон (логика, перебираем пары точек, в зависимости от того какая фигура образована ?)
             return length;
         }
-        public static void PerimeterCalculator()
+        public void PerimeterCalculator()
         {
 
         }
@@ -83,7 +84,7 @@ namespace LengthSide
         static void Main(string[] args)
         {
             int x = 0, y = 0, i = 0;  string name=null;
-            Console.WriteLine("=> FIGURE: 1 - triangle;  2 - quadrilateral;   3 - pentagon");
+            Console.WriteLine("=> Number of shape vertices (value in the range from 3 to 5)");
             i = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
             Console.WriteLine(new string ('_', 50));
@@ -94,7 +95,7 @@ namespace LengthSide
             Point point5 = new Point(x, y, name);
             switch (i)
             {
-                case 1:                    
+                case 3:                    
                     Console.WriteLine("       FIGURE: triangle");
                     for (int j = 1; j<4; j++)
                     {
@@ -124,7 +125,7 @@ namespace LengthSide
                     Figure figure1 = new Figure(point1, point2, point3);  
                     
                     break;
-                case 2:
+                case 4:
                     Console.WriteLine("       FIGURE: quadrilateral");
                     for (int j = 1; j < 5; j++)
                     {
@@ -160,7 +161,7 @@ namespace LengthSide
                     }
                     Figure figure2 = new Figure(point1, point2, point3, point4);
                     break;                
-                case 3:
+                case 5:
                     Console.WriteLine("       FIGURE: pentagon");
                     for (int j = 1; j < 6; j++)
                     {
@@ -201,13 +202,13 @@ namespace LengthSide
                             point4 = new Point(x, y, name);
                         }
                     }
-                    Figure figure3 = new Figure(point1, point2, point3, point4,point5);
+                    Figure figure3 = new Figure(point1, point2, point3, point4, point5);
                     break;
                 default:
                     //код, выполняемый если выражение не имеет ни одно из выше указанных значений
                     break;
             }
-
+            
 
             Console.ReadKey();
         }
