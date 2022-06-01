@@ -26,27 +26,49 @@ namespace LengthSide
 {
     class Point
     {
-        private  int coordinX;
-        private  int coordinY;
+        private  int coordX;
+        private  int coordY;
         private  string pointName;
-        public int CoordinX
+        public int CoordX
         {
-            get { return coordinX; }
+            get { return coordX; }
         }
-        public int CoordinY
+        public int CoordY
         {
-            get { return coordinY; }
+            get { return coordY; }
         }
         public string PointName
         {
             get { return pointName; }
         }
-        public Point(int coordinX, int coordinY, string pointName)
-        {
-            this.coordinX = coordinX;
-            this.coordinY = coordinY;
-            this.pointName = pointName;
-        }              
+        public Point(int coordX, int coordY, string pointName)
+
+        {           
+            var vertex = new List<string>() { "A", "B", "C", "D", "E" };           
+            
+            Console.WriteLine("=> Number of shape vertices (value in the range from 3 to 5)");
+            int numVert = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            Console.WriteLine(new string('_', 50));
+
+            for (int i = 0; i < numVert; i++)
+            {
+                pointName = vertex[i];
+                Console.Write("point " + pointName + " coordinate X: ");
+                coordX = Convert.ToInt32(Console.ReadLine());
+                Console.Write("point " + pointName + " coordinate Y: ");
+                coordY = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(new string('_', 50));
+                this.coordX = coordX;
+                this.coordY = coordY;
+                this.pointName = pointName;
+                
+
+            }
+            
+            
+        }
+      
     }
     
     class Figure
@@ -54,7 +76,10 @@ namespace LengthSide
 
         public Figure(Point A, Point B,Point C)
         {
-            // triangle
+            
+
+            
+
         }
         public Figure (Point A,Point B, Point C, Point D)
         {
@@ -83,134 +108,12 @@ namespace LengthSide
     {
         static void Main(string[] args)
         {
-            int x = 0, y = 0, i = 0;  string name=null;
-            Console.WriteLine("=> Number of shape vertices (value in the range from 3 to 5)");
-            i = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-            Console.WriteLine(new string ('_', 50));
-            Point point1 = new Point(x, y, name);
-            Point point2 = new Point(x, y, name);
-            Point point3 = new Point(x, y, name);
-            Point point4 = new Point(x, y, name);
-            Point point5 = new Point(x, y, name);
-            switch (i)
-            {
-                case 3:                    
-                    Console.WriteLine("       FIGURE: triangle");
-                    for (int j = 1; j<4; j++)
-                    {
-                        Console.WriteLine(" " + j + "-я точка: ");
-                        if (j == 1)
-                        {                            
-                            name = "A";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());                            
-                            point1 = new Point(x, y, name);
-                        }
-                        if (j == 2)
-                        {
-                            name = "B";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point2 = new Point(x, y, name);
-                        }
-                        if (j == 3)
-                        {
-                            name = "C";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point3 = new Point(x, y, name);
-                        }
-                    }
-                    Figure figure1 = new Figure(point1, point2, point3);  
-                    
-                    break;
-                case 4:
-                    Console.WriteLine("       FIGURE: quadrilateral");
-                    for (int j = 1; j < 5; j++)
-                    {
-                        Console.WriteLine(" " + j + "-я точка: ");
-                        if (j == 1)
-                        {
-                            name = "A";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point1 = new Point(x, y, name);
-                        }
-                        if (j == 2)
-                        {
-                            name = "B";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point2 = new Point(x, y, name);
-                        }
-                        if (j == 3)
-                        {
-                            name = "C";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point3 = new Point(x, y, name);
-                        }
-                        if (j == 4)
-                        {
-                            name = "D";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point4 = new Point(x, y, name);
-                        }
-                    }
-                    Figure figure2 = new Figure(point1, point2, point3, point4);
-                    break;                
-                case 5:
-                    Console.WriteLine("       FIGURE: pentagon");
-                    for (int j = 1; j < 6; j++)
-                    {
-                        Console.WriteLine(" " + j + "-я точка: ");
-                        if (j == 1)
-                        {
-                            name = "A";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point1 = new Point(x, y, name);
-                        }
-                        if (j == 2)
-                        {
-                            name = "B";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point2 = new Point(x, y, name);
-                        }
-                        if (j == 3)
-                        {
-                            name = "C";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point3 = new Point(x, y, name);
-                        }
-                        if (j == 4)
-                        {
-                            name = "D";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point4 = new Point(x, y, name);
-                        }
-                        if (j == 5)
-                        {
-                            name = "E";
-                            x = Convert.ToInt32(Console.ReadLine());
-                            y = Convert.ToInt32(Console.ReadLine());
-                            point4 = new Point(x, y, name);
-                        }
-                    }
-                    Figure figure3 = new Figure(point1, point2, point3, point4, point5);
-                    break;
-                default:
-                    //код, выполняемый если выражение не имеет ни одно из выше указанных значений
-                    break;
-            }
+            
             
 
             Console.ReadKey();
+
+            
         }
         
     }
