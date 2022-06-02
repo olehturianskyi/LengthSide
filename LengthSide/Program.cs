@@ -82,38 +82,28 @@ namespace LengthSide
         }
         public Figure(Point A, Point B, Point C, Point D, Point E)
         {
-            int aX = A.CoordinX;
-            int bX = B.CoordinX;
-            int cX = C.CoordinX;
-            int dX = D.CoordinX;
+           //int aX = A.CoordinX;
+           // int bX = B.CoordinX;
+           // int cX = C.CoordinX;
+           // int dX = D.CoordinX;
             int eX = E.CoordinX;
 
-            int aY = A.CoordinY;
-            int bY = B.CoordinY;
-            int cY = C.CoordinY;
-            int dY = D.CoordinY;
+            //int aY = A.CoordinY;
+            //int bY = B.CoordinY;
+            //int cY = C.CoordinY;
+            //int dY = D.CoordinY;
             int eY = E.CoordinY;
 
-            string aName = A.PointName;
-            string bName = B.PointName;
-            string cName = C.PointName;
-            string dName = D.PointName;
+            //string aName = A.PointName;
+            //string bName = B.PointName;
+            //string cName = C.PointName;
+            //string dName = D.PointName;
             string eName = E.PointName;
         }
 
-        double length;
-
-
-
-        public double LengthSide(Point A, Point B)
-        {
-            // определяем длины сторон (логика, перебираем пары точек, в зависимости от того какая фигура образована ?)
-            return length;
-        }
-        public static void PerimeterCalculator()
-        {
-
-        }
+        //double length;
+        
+        
     }
     internal class Program
     {
@@ -160,11 +150,18 @@ namespace LengthSide
                     }
                     
                     Console.WriteLine(new string('_', 50));
-
+                    Console.WriteLine(new string('_', 50));
                     Figure triangle = new Figure(pointA, pointB, pointC);
                     Console.WriteLine(pointA.PointName + ":   x=" + pointA.CoordinX + ":   y=" + pointA.CoordinY);
                     Console.WriteLine(pointB.PointName + ":   x=" + pointB.CoordinX + ":   y=" + pointB.CoordinY);
                     Console.WriteLine(pointC.PointName + ":   x=" + pointC.CoordinX + ":   y=" + pointC.CoordinY);
+                    Console.WriteLine(new string('_', 50));
+                    double ab_lenqth = Length_Side(pointA, pointB);
+                    Console.WriteLine("Side length AB: "+ab_lenqth);
+                    double bc_lenqth = Length_Side(pointB, pointC);
+                    Console.WriteLine("Side length BC: " + bc_lenqth);
+                    double ca_lenqth = Length_Side(pointC, pointA);
+                    Console.WriteLine("Side length CA: " + ca_lenqth);
                     break;
                 case 4:
                     Console.WriteLine("       FIGURE: quadrilateral");
@@ -203,12 +200,20 @@ namespace LengthSide
                     
                     Console.WriteLine(new string('_', 50));
 
-                    Figure quadrilateral = new Figure(pointA, pointB, pointC);
+                    Figure quadrilateral = new Figure(pointA, pointB, pointC, pointD);
                     Console.WriteLine(pointA.PointName + ":   x=" + pointA.CoordinX + ":   y=" + pointA.CoordinY);
                     Console.WriteLine(pointB.PointName + ":   x=" + pointB.CoordinX + ":   y=" + pointB.CoordinY);
                     Console.WriteLine(pointC.PointName + ":   x=" + pointC.CoordinX + ":   y=" + pointC.CoordinY);
                     Console.WriteLine(pointD.PointName + ":   x=" + pointD.CoordinX + ":   y=" + pointD.CoordinY);
 
+                    ab_lenqth = Length_Side(pointA, pointB);
+                    Console.WriteLine("Side length AB: " + ab_lenqth);
+                    bc_lenqth = Length_Side(pointB, pointC);
+                    Console.WriteLine("Side length BC: " + bc_lenqth);
+                    double cd_lenqth = Length_Side(pointC, pointD);
+                    Console.WriteLine("Side length CD: " + cd_lenqth);
+                    double da_lenqth = Length_Side(pointD, pointA);
+                    Console.WriteLine("Side length DE: " +da_lenqth);
                     break;
                 case 5:
                     Console.WriteLine("       FIGURE: pentagon");
@@ -253,13 +258,23 @@ namespace LengthSide
                     }
                     Console.WriteLine(new string('_', 50));
 
-                    Figure pentagon = new Figure(pointA, pointB, pointC);
+                    Figure pentagon = new Figure(pointA, pointB, pointC, pointD, pointE);
                     Console.WriteLine(pointA.PointName + ":   x=" + pointA.CoordinX + ":   y=" + pointA.CoordinY);
                     Console.WriteLine(pointB.PointName + ":   x=" + pointB.CoordinX + ":   y=" + pointB.CoordinY);
                     Console.WriteLine(pointC.PointName + ":   x=" + pointC.CoordinX + ":   y=" + pointC.CoordinY);
                     Console.WriteLine(pointD.PointName + ":   x=" + pointD.CoordinX + ":   y=" + pointD.CoordinY);
                     Console.WriteLine(pointE.PointName + ":   x=" + pointE.CoordinX + ":   y=" + pointE.CoordinY);
 
+                    ab_lenqth = Length_Side(pointA, pointB);
+                    Console.WriteLine("Side length AB: " + ab_lenqth);
+                    bc_lenqth = Length_Side(pointB, pointC);
+                    Console.WriteLine("Side length BC: " + bc_lenqth);
+                    cd_lenqth = Length_Side(pointC, pointD);
+                    Console.WriteLine("Side length CD: " + cd_lenqth);
+                    double de_lenqth = Length_Side(pointD, pointE);
+                    Console.WriteLine("Side length DE: " + de_lenqth);
+                    double ea_lenqth = Length_Side(pointE, pointA);
+                    Console.WriteLine("Side length EA: " + ea_lenqth);
                     break;
                 default:
                     //код, выполняемый если выражение не имеет ни одно из выше указанных значений
@@ -267,6 +282,18 @@ namespace LengthSide
             }
             
             Console.ReadKey();
+        }
+        public static double Length_Side(Point A, Point B)
+        {
+            int x1 = A.CoordinX;            
+            int y1 = A.CoordinY;
+            int x2 = B.CoordinX;
+            int y2 = B.CoordinY;
+            double length = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+            return length;
+        }
+        public static void PerimeterCalculator()
+        {
         }
 
     }
