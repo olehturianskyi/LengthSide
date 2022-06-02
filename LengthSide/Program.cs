@@ -50,60 +50,30 @@ namespace LengthSide
     }
 
     class Figure
-    {   
-        public Figure(Point A, Point B, Point C)
-        {
-            int aX = A.CoordinX;            
-            int bX = B.CoordinX;
-            int cX = C.CoordinX;
-            int aY = A.CoordinY;
-            int bY = B.CoordinY;
-            int cY = C.CoordinY;
-            string aName = A.PointName;
-            string bName = B.PointName;
-            string cName = C.PointName;
-        }
-        public Figure(Point A, Point B, Point C, Point D)           
-        {
-            int aX = A.CoordinX;
-            int bX = B.CoordinX;
-            int cX = C.CoordinX;
-            int dX = D.CoordinX;
-
-            int aY = A.CoordinY;
-            int bY = B.CoordinY;
-            int cY = C.CoordinY;
-            int dY = D.CoordinX;
-
-            string aName = A.PointName;
-            string bName = B.PointName;
-            string cName = C.PointName;
-            string dName = D.PointName;
-        }
-        public Figure(Point A, Point B, Point C, Point D, Point E)
-        {
-            int aX = A.CoordinX;
-            int bX = B.CoordinX;
-            int cX = C.CoordinX;
-           int dX = D.CoordinX;
-            int eX = E.CoordinX;
-
-            int aY = A.CoordinY;
-            int bY = B.CoordinY;
-            int cY = C.CoordinY;
-            int dY = D.CoordinY;
-            int eY = E.CoordinY;
-
-            string aName = A.PointName;
-            string bName = B.PointName;
-            string cName = C.PointName;
-            string dName = D.PointName;
-            string eName = E.PointName;
-        }
-
-        //double length;
+    {
+        private Point pointA;
+        private Point pointB;
+        private Point pointC;
+        private Point pointD;
+        private Point pointE;      
         
+        public Figure(Point _pointA, Point _pointB, Point _pointC)
+        {
+            pointA = _pointA;
+            pointB = _pointB; 
+            pointC = _pointC;
+        }
         
+        public Figure(Point _pointA, Point _pointB, Point _pointC, Point _pointD) :
+            this(_pointA, _pointB, _pointC)
+        {
+            pointD = _pointD;
+        }
+        public Figure(Point _pointA, Point _pointB, Point _pointC, Point _pointD, Point _pointE) :
+             this(_pointA, _pointB, _pointC, _pointD)
+        {
+            pointE = _pointE;
+        }
     }
     internal class Program
     {
