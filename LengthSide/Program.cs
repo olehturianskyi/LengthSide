@@ -53,7 +53,7 @@ namespace LengthSide
     {   
         public Figure(Point A, Point B, Point C)
         {
-            int aX = A.CoordinX;
+            int aX = A.CoordinX;            
             int bX = B.CoordinX;
             int cX = C.CoordinX;
             int aY = A.CoordinY;
@@ -82,22 +82,22 @@ namespace LengthSide
         }
         public Figure(Point A, Point B, Point C, Point D, Point E)
         {
-           //int aX = A.CoordinX;
-           // int bX = B.CoordinX;
-           // int cX = C.CoordinX;
-           // int dX = D.CoordinX;
+            int aX = A.CoordinX;
+            int bX = B.CoordinX;
+            int cX = C.CoordinX;
+           int dX = D.CoordinX;
             int eX = E.CoordinX;
 
-            //int aY = A.CoordinY;
-            //int bY = B.CoordinY;
-            //int cY = C.CoordinY;
-            //int dY = D.CoordinY;
+            int aY = A.CoordinY;
+            int bY = B.CoordinY;
+            int cY = C.CoordinY;
+            int dY = D.CoordinY;
             int eY = E.CoordinY;
 
-            //string aName = A.PointName;
-            //string bName = B.PointName;
-            //string cName = C.PointName;
-            //string dName = D.PointName;
+            string aName = A.PointName;
+            string bName = B.PointName;
+            string cName = C.PointName;
+            string dName = D.PointName;
             string eName = E.PointName;
         }
 
